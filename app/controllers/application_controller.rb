@@ -15,5 +15,12 @@ end
 
    I18n.locale = session[:locale] || I18n.default_locale
  end
-  protect_from_forgery with: :exception
+
+ def require_is_admin
+   if !current_user.admin?
+     flash[:alert] = 'You are not admin'
+     redirect_to root_path
+   end
+ end
+
 end

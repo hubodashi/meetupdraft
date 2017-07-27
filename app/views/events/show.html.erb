@@ -16,5 +16,27 @@
 <% end %>
 </ul>
 
-<%= @event.description.html_safe %>
+<%= sanitize @event.description %>
+<p><%= link_to("评论", new_event_post_path(@event), class: "btn btn-default")%></p>
 <p><%= link_to "开始报名", new_event_registration_path(@event), :class => "btn btn-primary" %></p>
+
+<table class="table">
+  <thead>
+   <tr>
+      <th>编号</th>
+      <th>评价</th>
+      <th>发表者</th>
+      <th>发表时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.id %>楼</td>
+        <td><%= post.content %></td>
+        <td><%= post.user.email %></td>
+        <td><%= post.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

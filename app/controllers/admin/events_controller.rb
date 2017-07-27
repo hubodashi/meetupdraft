@@ -1,5 +1,7 @@
 class Admin::EventsController < AdminController
-
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :require_is_admin
+  
   def index
     @events = Event.all
     @events = Event.rank(:row_order).all

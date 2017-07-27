@@ -1,4 +1,6 @@
 "zh-CN":
+  post:
+    add_post: 新增评价
   registration:
     status:
       pending: 报名尚未完成

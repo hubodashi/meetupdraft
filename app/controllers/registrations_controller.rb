@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
   before_action :find_event
-
+  before_action :authenticate_user!, :only => [:new, :create]
   def new
   end
 

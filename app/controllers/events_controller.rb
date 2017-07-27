@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.only_available.find_by_friendly_id!(params[:id])
-  end  
+    @posts = @event.posts
+  end
 
 end

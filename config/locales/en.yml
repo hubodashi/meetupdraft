@@ -23,6 +23,8 @@
 #   hello: "Hello world"
 
   "en":
+    post:
+      add_post: Add Post
     registration:
       status:
         pending: pending

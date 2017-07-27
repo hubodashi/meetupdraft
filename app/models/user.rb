@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
    has_many :memberships
+   has_many :posts
    has_many :groups, :through => :memberships
    has_one :profile
    has_many :registrations
@@ -13,4 +14,8 @@ class User < ApplicationRecord
     self.email.split("@").first
   end
 
+  def admin?
+    is_admin
+  end
+  
 end

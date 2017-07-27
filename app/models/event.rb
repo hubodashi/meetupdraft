@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   mount_uploader :logo, EventLogoUploader
   mount_uploaders :images, EventImageUploader
   serialize :images, JSON
+  has_many :posts, :dependent => :destroy
   has_many :tickets, :dependent => :destroy
   has_many :registrations, :dependent => :destroy
   accepts_nested_attributes_for :tickets, :allow_destroy => true, :reject_if => :all_blank
